@@ -1,0 +1,36 @@
+<div class="main" >
+    <div class="container task">
+
+        <div class="row " >
+            <div class="col-sm-6">
+                <label>Task</label>
+                <input type="text" [(ngModel)]="task">
+                <!-- <input type="checkbox" class="todo-checkbox" ng-checked="true" [(ngModel)]="status"> -->
+            </div>
+        
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-secondary btn-sm" (click)="onAddTask()">Add</button>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-12">
+            <table>
+                <thead>List to do</thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Task</th>
+                    <th>Done?</th>
+                </tr>
+                <tr *ngFor="let l of lists; let i = index" [ngClass]="{done: l.task_status==true}">
+                    <td>{{i+1}}</td>
+                    <td>{{l.task_todo}}</td>
+                    <td><input type="checkbox" [checked]="l.task_status" [(ngModel)]="l.task_status"
+                            (click)="alterStatus(i)"></td>
+                    <!-- <td>{{l.task_status}}</td> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

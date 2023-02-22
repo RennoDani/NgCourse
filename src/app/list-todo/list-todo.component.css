@@ -1,0 +1,27 @@
+.task{
+    border: 1px solid gray;    
+    width: 75%;
+    margin: 5%;
+}
+
+table {
+    border: 1px solid gray;    
+    width: 75%;
+    margin: 5%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.done {
+    background-color: lightblue;
+}
+
+.todo {
+    color: salmon;
+}
