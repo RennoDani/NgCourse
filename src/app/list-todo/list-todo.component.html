@@ -1,19 +1,25 @@
 <div class="main" >
     <div class="container task">
 
-        <div class="row " >
-            <div class="col-sm-6">
+        <div class="row task-add" >
+            <div class="col-sm-5">
                 <label>Task</label>
-                <input type="text" [(ngModel)]="task">
-                <!-- <input type="checkbox" class="todo-checkbox" ng-checked="true" [(ngModel)]="status"> -->
-            </div>
-        
-            <div class="col-sm-2">
+                <input type="text" [(ngModel)]="task_aux">                
+            </div>            
+            <div class="col-sm-1">
                 <button type="button" class="btn btn-secondary btn-sm" (click)="onAddTask()">Add</button>
             </div>
         </div>
 
-
+        <div class="row task-add" >            
+            <div class="col-sm-5">
+                <label>Status</label>                
+                <input type="checkbox" class="todo-checkbox" ng-checked="true" [(ngModel)]="status_aux">
+            </div>
+            <div class="col-sm-1">
+                <button type="button" class="btn btn-secondary btn-sm" (click)="onFilterTask(status_aux)">Filter</button>
+            </div>
+        </div>
 
         <div class="col-sm-12">
             <table>
@@ -23,10 +29,10 @@
                     <th>Task</th>
                     <th>Done?</th>
                 </tr>
-                <tr *ngFor="let l of lists; let i = index" [ngClass]="{done: l.task_status==true}">
+                <tr *ngFor="let a of lists_aux; let i = index" [ngClass]="{done: a.task_status_aux==true}">
                     <td>{{i+1}}</td>
-                    <td>{{l.task_todo}}</td>
-                    <td><input type="checkbox" [checked]="l.task_status" [(ngModel)]="l.task_status"
+                    <td>{{a.task_todo_aux}}</td>
+                    <td><input type="checkbox" [checked]="a.task_status_aux" [(ngModel)]="a.task_status_aux"
                             (click)="alterStatus(i)"></td>
                     <!-- <td>{{l.task_status}}</td> -->
                 </tr>
